@@ -33,14 +33,8 @@
       <header class="demo-header mdl-layout__header mdl-color--primary mdl-color--white mdl-color-text--white-600">
         <div class="mdl-layout__drawer-button"><i class="mdi mdi-menu"></i></div>
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Order</span>
+          <span class="mdl-layout-title">Kelola Meja</span>
           <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-            </div>
-          </div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="mdi mdi-dots-vertical"></i>
           </button>
@@ -60,7 +54,7 @@
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
+          <a class="mdl-navigation__link" href="index.html"><i class="mdi mdi-cart"></i>Order</a>
           <a class="mdl-navigation__link" href="tampil meja.html"><i class="mdi mdi-archive"></i>Kelola Meja</a>
           <a class="mdl-navigation__link" href="tampil order.html"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
           <div class="mdl-layout-spacer"></div>
@@ -69,46 +63,33 @@
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-			<h4>Daftar Order</h4>
-          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-            <center>
-            <!-- tabel pelayan -->
-            <table class="mdl-data-table mdl-js-data-table">
-              <thead>
-                <tr>
-                  <th class="mdl-data-table__cell--non-numeric">Id Transaksi</th>
-                  <th class="mdl-data-table__cell--non-numeric">Meja</th>
-                  <th class="mdl-data-table__cell--non-numeric">Total Harga</th>
-                  <th class="mdl-data-table__cell--non-numeric"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">T1</td>
-                  <td class="mdl-data-table__cell--non-numeric">Meja 1</td>
-                  <td class="mdl-data-table__cell--non-numeric">Rp.10000</td>
-                  <td>
-                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="edit meja.html">
-                                <i class="mdi mdi-cash-multiple"></i>
-                  						</a>
-                  						<div class="mdl-tooltip" for="ubah">
-                  							Ubah
-                  						</div>
-                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="#">
-                                <i class="mdi mdi-cash-multiple"></i>
-                  						</a>
-                  						<div class="mdl-tooltip" for="hapus">
-                  							Hapus
-                  						</div>
-                  					  </td>
-									  </tr>
-
-              </tbody>
-            </table>
-            <!--/ tabel pegawai -->
-          </center>
+            <!-- Form Tambah pelayan-->
+               <form role="form" action="#" method="post" name="postform" enctype="multipart/form-data">
+               <h4><center>Edit Meja</center></h4>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                   <label for="idmeja" class="mdl-textfield__label">Id Meja</label>
+                   <input type="text" pattern="[B0-9]*" class="mdl-textfield__input" id="idmeja" name="idmeja" />
+                   <span class="mdl-textfield__error">Format : MXXX</span>
+               </div>
+               <br>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                   <label for="pertanyaan" class="mdl-textfield__label">Nama</label>
+                   <textarea class="mdl-textfield__input" id="pertanyaan" name="pertanyaan"> </textarea>
+               </div>
+               <br>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                   <label for="telepon" class="mdl-textfield__label">Status</label>
+                   <select class="mdl-textfield__input" id="jabatan" name="jabatan">
+                    <option value="P1">Kosong</option>
+                    <option value="P1">Isi</option>
+                   </select>
+               </div>
+               <br>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">UBAH MEJA</button>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">RESET</button>
+           </form>
+           <!-- /form tambah pelayan-->
           </div>
-
         </div>
       </main>
     </div>

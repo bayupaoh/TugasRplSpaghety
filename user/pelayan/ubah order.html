@@ -61,40 +61,66 @@
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil meja.html"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil order.html"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+          <a class="mdl-navigation__link" href="tampil report.html"><i class="mdi mdi-archive"></i>Kelola Meja</a>
+          <a class="mdl-navigation__link" href="tampil report.html"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-			<h4>Daftar Order</h4>
-          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+            <!-- Form Tambah Guru-->
             <center>
-            <!-- tabel pelayan -->
-            <table class="mdl-data-table mdl-js-data-table">
+              <h5>T01 ( Meja1 )</h5>
+              <h7>Tanggal : 17 Mei 2017 17:17:17</h7>
+	           <br>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                   <label for="pertanyaan" class="mdl-textfield__label">Menu</label>
+                   <input type = "text" class="mdl-text_input" value="Ayam" />
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">Cari</button>
+               </div>
+	           <br>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                   <label for="telepon" class="mdl-textfield__label">Jumlah</label>
+                   <select class="mdl-textfield__input">
+                    <option value="P1">1</option>
+                    <option value="P1">2</option>
+                    <option value="P1">3</option>
+                    <option value="P1">4</option>
+                    <option value="P1">5</option>
+                    <option value="P1">6</option>
+                    <option value="P1">7</option>
+                    <option value="P1">8</option>
+                    <option value="P1">9</option>
+                    <option value="P1">10</option>
+                   </select>
+               </div>
+			   <br>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">TAMBAH PESANAN</button>			  
+			   <table class="mdl-data-table mdl-js-data-table mdl-cell mdl-cell--12-col ">
               <thead>
                 <tr>
-                  <th class="mdl-data-table__cell--non-numeric">Id Transaksi</th>
-                  <th class="mdl-data-table__cell--non-numeric">Meja</th>
-                  <th class="mdl-data-table__cell--non-numeric">Total Harga</th>
+                  <th class="mdl-data-table__cell--non-numeric">Nama Menu</th>
+                  <th class="mdl-data-table__cell--non-numeric">Jumlah</th>
+                  <th class="mdl-data-table__cell--non-numeric">Harga Satuan</th>
+                  <th class="mdl-data-table__cell--non-numeric">Total</th>
                   <th class="mdl-data-table__cell--non-numeric"></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="mdl-data-table__cell--non-numeric">T1</td>
-                  <td class="mdl-data-table__cell--non-numeric">Meja 1</td>
-                  <td class="mdl-data-table__cell--non-numeric">Rp.10000</td>
+                  <td class="mdl-data-table__cell--non-numeric">Ayam</td>
+                  <td class="mdl-data-table__cell--non-numeric">1</td>
+                  <td class="mdl-data-table__cell--non-numeric">Rp.15000</td>
+                  <td class="mdl-data-table__cell--non-numeric">Rp.15000</td>
                   <td>
-                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="edit meja.html">
+                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="detail.html">
                                 <i class="mdi mdi-cash-multiple"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="ubah">
                   							Ubah
                   						</div>
-                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="#">
+                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="detail.html">
                                 <i class="mdi mdi-cash-multiple"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="hapus">
@@ -105,10 +131,12 @@
 
               </tbody>
             </table>
-            <!--/ tabel pegawai -->
-          </center>
+			<h5>Total Harga : Rp.15000</h5>
+				<br>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">UBAH</button>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">RESET</button>
+            <!-- /form ubah order makan-->
           </div>
-
         </div>
       </main>
     </div>
