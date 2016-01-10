@@ -24,9 +24,9 @@
     <link rel="shortcut icon" href="images/favicon.png" />
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <link rel="stylesheet" href="../css/material.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link href="../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../css/material.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link href="../../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
     <style>
     #view-source {
       position: fixed;
@@ -46,15 +46,6 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Home</span>
           <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="mdi mdi-magnify"></i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search" />
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
-            </div>
-          </div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="mdi mdi-dots-vertical"></i>
           </button>
@@ -67,7 +58,7 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="../img/pegawai/user.jpg" class="demo-avatar">
+          <img src="../../img/pegawai/user.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>Bayu Paoh <br> Admin</span>
             <div class="mdl-layout-spacer"></div>
@@ -85,7 +76,7 @@
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
             <!-- Form Tambah Guru-->
                <form role="form" action="proses tambah guru.php" method="post" name="postform" enctype="multipart/form-data">
-               <h4>FORM TAMBAH GURU</h4>
+               <h4>Edit Pegawai</h4>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                    <label for="nip" class="mdl-textfield__label">NIP</label>
                    <input type="text" pattern="[P0-9]*" class="mdl-textfield__input" id="nip" name="nip" />
@@ -166,6 +157,6 @@
         </div>
       </main>
     </div>
-    <script src="../js/material.min.js"></script>
+    <script src="../../js/material.min.js"></script>
   </body>
 </html>

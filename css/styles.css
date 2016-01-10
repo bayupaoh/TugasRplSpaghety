@@ -138,7 +138,7 @@ html, body {
   background-color: #00BCD4;
   color: #37474F;
 }
-.demo-navigation .mdl-navigation__link .material-icons {
+.demo-navigation .mdl-navigation__link .mdi {
   font-size: 24px;
   color: rgba(255, 255, 255, 0.56);
   margin-right: 32px;
@@ -147,7 +147,9 @@ html, body {
 .demo-content {
   max-width: 1080px;
 }
-
+.demo-report {
+  padding : 30px;
+}
 .demo-charts {
   -webkit-box-align: center;
   -webkit-align-items: center;

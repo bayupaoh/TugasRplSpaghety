@@ -24,20 +24,9 @@
     <link rel="shortcut icon" href="images/favicon.png" />
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <link rel="stylesheet" href="../css/material.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link href="../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
-    <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-    </style>
+    <link rel="stylesheet" href="../../css/material.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link href="../../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -46,15 +35,6 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Home</span>
           <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="mdi mdi-magnify"></i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search" />
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
-            </div>
-          </div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="mdi mdi-dots-vertical"></i>
           </button>
@@ -67,7 +47,7 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="../img/pegawai/user.jpg" class="demo-avatar">
+          <img src="../../img/pegawai/user.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
             <span>Bayu Paoh <br> Admin</span>
             <div class="mdl-layout-spacer"></div>
@@ -83,53 +63,36 @@
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-            <!-- Form Tambah Guru-->
-            <center>
-              <img src="../img/pegawai/user.jpg"  class="demo-profil">
-              <h5>Bayu Paoh (PGJ1)</h5>
-              <h6>Kasir</h6>
-              <table class="mdl-data-table mdl-js-data-table mdl-cell mdl-cell--12-col ">
-                <tbody>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Jenis Kelamin</td>
-                  <td class="mdl-data-table__cell--non-numeric">Pria</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">TTL</td>
-                  <td class="mdl-data-table__cell--non-numeric">xxx, 17 Mei 2017</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Alamat</td>
-                  <td class="mdl-data-table__cell--non-numeric">Jl.Dipatiukur no.120</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Telp</td>
-                  <td class="mdl-data-table__cell--non-numeric">085738812545</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Email</td>
-                  <td class="mdl-data-table__cell--non-numeric">Bayu@gmail.com</td>
-                </tr>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric">No HP</td>
-                  <td class="mdl-data-table__cell--non-numeric">+62<?php echo $no_telp;?></td>
-                </tr>
-                </tbody>
-              </table>
+            <!-- Form Tambah Jabatan-->
+               <form role="form" action="#" method="post" name="postform" enctype="multipart/form-data">
+               <h4>Form Edit Jabatan</h4>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                   <label for="idjabatan" class="mdl-textfield__label">Id Jabatan</label>
+                   <input type="text" pattern="[J0-9]*" class="mdl-textfield__input" id="idjabatan" name="idjabatan" />
+                   <span class="mdl-textfield__error">Format : JXXX</span>
+               </div>
+               <br>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                   <label for="namajabatan" class="mdl-textfield__label">Nama Jabatan</label>
+                   <input type="text" pattern="[A-Za-z]*" class="mdl-textfield__input" id="namajabatan" name="namajabatan" />
+                   <span class="mdl-textfield__error">Tidak boleh berupa angka atau simbol</span>
+               </div>
+               <br>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                   <label for="gaji" class="mdl-textfield__label">Gaji (Rupiah)</label>
+                   <input type="text" pattern="[0-9]*" class="mdl-textfield__input" id="gaji" name="gaji" />
+                   <span class="mdl-textfield__error">Tidak boleh berupa huruf atau simbol</span>
+               </div>
+               <br>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">Tambah Jabatan</button>
 
-            </center>
+           </form>
 
-            <!-- /form tambah guru-->
+           <!-- /form tambah pegawai-->
           </div>
         </div>
       </main>
     </div>
-      <a href="tambah pegawai.html" id="view-source">
-        <!-- Colored FAB button with ripple -->
-          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-            <i class="mdi mdi-plus"></i>
-          </button>
-      </a>
-    <script src="../js/material.min.js"></script>
+    <script src="../../js/material.min.js"></script>
   </body>
 </html>
