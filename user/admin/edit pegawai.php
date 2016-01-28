@@ -20,7 +20,7 @@
 		$fotopegawai = $row['foto'];
 		$idjabatan = $row['id_jabatan'];
 	}
-	
+
 ?>
 <html lang="en">
   <head>
@@ -73,9 +73,7 @@
             <i class="mdi mdi-dots-vertical"></i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Setting</li>
-            <li class="mdl-menu__item">Log Out</li>
+						<li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
           </ul>
         </div>
       </header>
@@ -169,7 +167,7 @@
                     <option value="<?php echo $row['id_jabatan'];?>" <?php if($row['id_jabatan']==$idjabatan){echo "selected";}?> ><?php echo $row['nama_jabatan'];?></option>
                     <?php
 						}
-			  		?> 
+			  		?>
                    </select>
                </div>
                <br>

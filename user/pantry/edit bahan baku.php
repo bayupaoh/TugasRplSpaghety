@@ -59,9 +59,7 @@
             <i class="mdi mdi-dots-vertical"></i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Setting</li>
-            <li class="mdl-menu__item">Log Out</li>
+						<li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
           </ul>
         </div>
       </header>

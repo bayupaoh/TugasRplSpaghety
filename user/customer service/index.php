@@ -7,7 +7,7 @@
 	$nama = $_SESSION['nama_pegawai'];
 	$jabatan = $_SESSION['nama_jabatan'];
 	$foto = $_SESSION['foto'];
-	
+
 	$query1='SELECT count(id_detailkuesioner) as total FROM detailkuesioner';
 	$mysql=mysql_query($query1);
 	if($row=mysql_fetch_array($mysql)){
@@ -23,7 +23,7 @@
 	}else{
 		$totalsetuju=0;
 	}
-	
+
 	$query3="SELECT count(id_detailkuesioner) as total FROM detailkuesioner where jawaban='Tidak'";
 	$mysql=mysql_query($query3);
 	if($row=mysql_fetch_array($mysql)){
@@ -93,9 +93,7 @@
             <i class="mdi mdi-dots-vertical"></i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Setting</li>
-            <li class="mdl-menu__item">Log Out</li>
+						<li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
           </ul>
         </div>
       </header>
@@ -120,7 +118,7 @@
 		  <h4>Grafik Kepuasan Pelanggan</h4>
 		  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 		      <div class="circle" id="circles-1"></div>
-          
+
 		  <h5><?php echo $totalsetuju; ?> Orang Puas <br> <?php echo $totaltidaksetuju; ?> Tidak Puas</h5>
           </div>
         </div>
@@ -144,7 +142,7 @@
 <script type="text/javascript" src="../../js/circles.js"></script>
 					         <script>
 								var colors = [
-										['#f6608a','#3f51b5'], ['#ffffff','#f6608a'], ['#ffffff','#f6608a'], ['#ffffff','#f6608a'], ['#ffffff','#f6608a'], ['#ffffff','#f6608a']		
+										['#f6608a','#3f51b5'], ['#ffffff','#f6608a'], ['#ffffff','#f6608a'], ['#ffffff','#f6608a'], ['#ffffff','#f6608a'], ['#ffffff','#f6608a']
 										];
 								for (var i = 1; i <= 6; i++) {
 									var angka = 0;
@@ -164,7 +162,7 @@
 
 									var child = document.getElementById('circles-' + i),
 										percentage = angka;
-										
+
 									Circles.create({
 										id:         child.id,
 										percentage: percentage,
@@ -175,6 +173,5 @@
 										colors:     colors[0]
 									});
 								}
-						
-				</script>
 
+				</script>

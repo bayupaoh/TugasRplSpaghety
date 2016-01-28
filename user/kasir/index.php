@@ -6,7 +6,7 @@
 	$nama = $_SESSION['nama_pegawai'];
 	$jabatan = $_SESSION['nama_jabatan'];
 	$foto = $_SESSION['foto'];
-	
+
 ?>
 <html lang="en">
   <head>
@@ -33,11 +33,11 @@
     <link rel="shortcut icon" href="images/favicon.png" />
 	    <script type="text/javascript" src="../../js/login_effect.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-	
+
     <link rel="stylesheet" href="../../css/material.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
     <link href="../../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
- 
+
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -56,9 +56,7 @@
             <i class="mdi mdi-dots-vertical"></i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Setting</li>
-            <li class="mdl-menu__item">Log Out</li>
+						<li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
           </ul>
         </div>
       </header>
@@ -122,6 +120,6 @@
         </div>
       </main>
     </div>
-    <script src="../../js/material.min.js"></script>	
+    <script src="../../js/material.min.js"></script>
 	</body>
 </html>
