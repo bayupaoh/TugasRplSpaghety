@@ -35,13 +35,24 @@
     <link rel="stylesheet" href="../../css/material.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
     <link href="../../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--primary mdl-color--white mdl-color-text--white-600">
         <div class="mdl-layout__drawer-button"><i class="mdi mdi-menu"></i></div>
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Order</span>
+          <span class="mdl-layout-title">Kelola Meja</span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -77,29 +88,31 @@
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-			<h4>Daftar Order</h4>
+			<h4>Daftar Meja</h4>
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
             <center>
             <!-- tabel pelayan -->
             <table class="mdl-data-table mdl-js-data-table">
               <thead>
                 <tr>
-                  <th class="mdl-data-table__cell--non-numeric">Id Transaksi</th>
-                  <th class="mdl-data-table__cell--non-numeric">Meja</th>
-                  <th class="mdl-data-table__cell--non-numeric">Total Harga</th>
+                  <th class="mdl-data-table__cell--non-numeric">Id Meja</th>
+                  <th class="mdl-data-table__cell--non-numeric">Nama Meja</th>
+                  <th class="mdl-data-table__cell--non-numeric">Status</th>
+                  <th class="mdl-data-table__cell--non-numeric">Id Pegawai</th>
                   <th class="mdl-data-table__cell--non-numeric"></th>
                 </tr>
               </thead>
               <tbody>
               <?php
-				$query = 'SELECT * FROM pesanan p JOIN meja m ON p.id_meja = m.id_meja';
+				$query = 'SELECT * FROM meja';
 			  	$mysql = mysql_query($query);
 				while($row = mysql_fetch_array($mysql)){
 			  ?>
                 <tr>
-                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['no_pesanan'];?></td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['id_meja'];?></td>
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['nama_meja'];?></td>
-                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['total_harga'];?></td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['status'];?></td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['id_pegawai'];?></td>
                   <td>
                   						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="edit meja.php?id=<?php echo $row['id_meja'];?>">
                                 <i class="mdi mdi-cash-multiple"></i>
@@ -127,6 +140,12 @@
         </div>
       </main>
     </div>
+    <a href="tambah meja.php" id="view-source">
+        <!-- Colored FAB button with ripple -->
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            <i class="mdi mdi-plus"></i>
+          </button>
+      </a>
     <script src="../../js/material.min.js"></script>
   </body>
 </html>

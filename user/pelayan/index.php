@@ -1,4 +1,12 @@
 <!doctype html>
+<?php
+	include("../../koneksi/koneksi.php");
+	session_start();
+	$idpegawai = $_SESSION['idpegawai'];
+	$nama = $_SESSION['nama_pegawai'];
+	$jabatan = $_SESSION['jabatan'];
+	$foto = $_SESSION['foto'];
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -53,7 +61,7 @@
       <header class="demo-header mdl-layout__header mdl-color--primary mdl-color--white mdl-color-text--white-600">
         <div class="mdl-layout__drawer-button"><i class="mdi mdi-menu"></i></div>
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Kelola Meja</span>
+          <span class="mdl-layout-title">Order</span>
           <div class="mdl-layout-spacer"></div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="mdi mdi-dots-vertical"></i>
@@ -67,16 +75,16 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="../../img/pegawai/user.jpg" class="demo-avatar">
+          <img src="../../img/pegawai/<?php echo $foto;?>" class="demo-avatar">
           <div class="demo-avatar-dropdown">
-            <span>Bayu Paoh <br> Pelayan</span>
+            <span><?php echo $nama;?> <br> <?php echo $jabatan;?></span>
             <div class="mdl-layout-spacer"></div>
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.html"><i class="mdi mdi-cart"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil meja.html"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil order.html"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+          <a class="mdl-navigation__link" href="index.php"><i class="mdi mdi-cart"></i>Order</a>
+          <a class="mdl-navigation__link" href="tampil meja.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
+          <a class="mdl-navigation__link" href="tampil order.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>
@@ -84,66 +92,29 @@
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
             <!-- Form Order Pelayan-->
+            <?php
+				$query = 'SELECT * FROM meja';
+			  	$mysql = mysql_query($query);
+				while($row = mysql_fetch_array($mysql)){
+			?>
 			<div class="demo-card-square mdl-card mdl-shadow--2dp">
-			  <div class="mdl-card__title mdl-card--expand">
-			   <center> <h2 class="mdl-card__title-text">Meja 1</h2></center>
+			  <div class="mdl-card__title mdl-card--expand" <?php if ($row['status'] == 'Terisi') {echo 'id="terisi"';}?>>
+			   <center> <h2 class="mdl-card__title-text"><?php echo $row['nama_meja'];?></h2></center>
 			  </div>
 			  <div class="mdl-card__supporting-text">
-				Kosong
+				<?php echo $row['status'];?>
 			  </div>
 			  <div class="mdl-card__actions mdl-card--border">
 			  <center>
-				<a href="pesan order.html"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+				<a href="pesan order.php?id=<?php echo $row['id_meja'];?>"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" <?php if ($row['status'] == 'Terisi') {echo 'disabled';}?>>
 				  Order
 				</a>
 				</center>
 			  </div>
-			</div>  
-			<div class="demo-card-square mdl-card mdl-shadow--2dp">
-			  <div class="mdl-card__title mdl-card--expand" id="terisi">
-			   <center> <h2 class="mdl-card__title-text">Meja 2</h2></center>
-			  </div>
-			  <div class="mdl-card__supporting-text">
-				Terisi
-			  </div>
-			  <div class="mdl-card__actions mdl-card--border">
-			  <center>
-				<a href="pesan order.html"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" disabled>
-				  Order
-				</a>
-				</center>
-			  </div>
-          </div>
-			<div class="demo-card-square mdl-card mdl-shadow--2dp">
-			  <div class="mdl-card__title mdl-card--expand">
-			   <center> <h2 class="mdl-card__title-text">Meja 3</h2></center>
-			  </div>
-			  <div class="mdl-card__supporting-text">
-				Kosong
-			  </div>
-			  <div class="mdl-card__actions mdl-card--border">
-			  <center>
-				<a href="pesan order.html"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-				  Order
-				</a>
-				</center>
-			  </div>
-			</div>  
-			<div class="demo-card-square mdl-card mdl-shadow--2dp">
-			  <div class="mdl-card__title mdl-card--expand">
-			   <center> <h2 class="mdl-card__title-text">Meja 4</h2></center>
-			  </div>
-			  <div class="mdl-card__supporting-text">
-				Kosong
-			  </div>
-			  <div class="mdl-card__actions mdl-card--border">
-			  <center>
-				<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-				  Order
-				</a>
-				</center>
-			  </div>
-			</div>  
+			</div> 
+          <?php
+			}
+		  ?> 
         </div>
       </main>
     </div>

@@ -10,6 +10,6 @@
 		?><script> alert ('Hapus data berhasil'); </script><?php
 		echo '<meta http-equiv="Refresh" content="0; url=tampil meja.php">';
 	} else {
-		?><script> alert (Hapus data gagal');history.go(-1);</script><?php
+		?><script> alert ('Hapus data gagal');history.go(-1);</script><?php
 	}
 ?>

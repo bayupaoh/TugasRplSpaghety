@@ -54,9 +54,9 @@
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.html"><i class="mdi mdi-cart"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil kuisioner.html"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil kuisioner.html"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+          <a class="mdl-navigation__link" href="index.php"><i class="mdi mdi-cart"></i>Order</a>
+          <a class="mdl-navigation__link" href="tampil kuisioner.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
+          <a class="mdl-navigation__link" href="tampil kuisioner.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>

@@ -62,9 +62,9 @@
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.php"><i class="mdi mdi-cart"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil kuisioner.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil kuisioner.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+          <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
+          <a class="mdl-navigation__link" href="tampil meja.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
+          <a class="mdl-navigation__link" href="tampil order.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>
@@ -72,12 +72,12 @@
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
             <!-- Form Tambah pelayan-->
-               <form role="form" action="proses tambah meja.phpid=<?php echo $idpegawai;?>" method="post" name="postform" enctype="multipart/form-data">
+               <form role="form" action="proses tambah meja.php?id=<?php echo $idpegawai;?>" method="post" name="postform" enctype="multipart/form-data">
                <h4><center>Tambah Meja</center></h4>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                    <label for="idmeja" class="mdl-textfield__label">Id Meja</label>
-                   <input type="text" pattern="[M0-9]*" class="mdl-textfield__input" id="idmeja" name="idmeja" />
-                   <span class="mdl-textfield__error">Format : MXXX</span>
+                   <input type="text" pattern="[MJ0-9]*" class="mdl-textfield__input" id="idmeja" name="idmeja" />
+                   <span class="mdl-textfield__error">Format : MJXXX</span>
                </div>
                <br>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -94,7 +94,7 @@
                </div>
                <br>
                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">Tambah Meja</button>
-               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">RESET</button>
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="reset">Clear</button>
            </form>
            <!-- /form tambah pelayan-->
           </div>

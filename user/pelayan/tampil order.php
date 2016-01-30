@@ -60,9 +60,9 @@
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil meja.html"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil order.html"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+          <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
+          <a class="mdl-navigation__link" href="tampil meja.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
+          <a class="mdl-navigation__link" href="tampil order.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>
@@ -88,13 +88,13 @@
                   <td class="mdl-data-table__cell--non-numeric">Meja 1</td>
                   <td class="mdl-data-table__cell--non-numeric">Rp.10000</td>
                   <td>
-                  						<a id="bayar" class="mdl-button mdl-js-button mdl-button--icon" href="detail order.html">
+                  						<a id="bayar" class="mdl-button mdl-js-button mdl-button--icon" href="detail order.php">
                                 <i class="mdi mdi-cash-multiple"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="bayar">
                   							Detail
                   						</div>               
-                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="ubah order.html">
+                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="ubah order.php">
                                 <i class="mdi mdi-cash-multiple"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="ubah">

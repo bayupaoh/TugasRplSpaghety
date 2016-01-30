@@ -1,4 +1,18 @@
 <!doctype html>
+<?php
+	include("../../koneksi/koneksi.php");
+	session_start();
+	$idpegawai = $_SESSION['idpegawai'];
+	$nama = $_SESSION['nama_pegawai'];
+	$jabatan = $_SESSION['jabatan'];
+	$foto = $_SESSION['foto'];
+	$idmeja = $_GET['id'];
+	$query = "UPDATE meja SET status = 'Terisi' WHERE id_meja = '$idmeja'";
+	$mysql = mysql_query($query);
+	if (!$mysql) {?>
+		<script> alert ('Order gagal');history.go(-1);</script>
+	<?php }
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -53,16 +67,16 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="../../img/pegawai/user.jpg" class="demo-avatar">
+          <img src="../../img/pegawai/<?php echo $foto;?>" class="demo-avatar">
           <div class="demo-avatar-dropdown">
-            <span>Bayu Paoh <br> Pelayan</span>
+            <span><?php echo $nama;?> <br> <?php echo $jabatan;?></span>
             <div class="mdl-layout-spacer"></div>
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil meja.html"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil order.html"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+          <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
+          <a class="mdl-navigation__link" href="tampil meja.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
+          <a class="mdl-navigation__link" href="tampil order.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>
@@ -71,7 +85,7 @@
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
             <!-- Form Tambah Guru-->
             <center>
-              <h5>T01 ( Meja1 )</h5>
+              <h5>T01 ( Meja 1 )</h5>
               <h7>Tanggal : 17 Mei 2017 17:17:17</h7>
 	           <br>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -114,13 +128,13 @@
                   <td class="mdl-data-table__cell--non-numeric">Rp.15000</td>
                   <td class="mdl-data-table__cell--non-numeric">Rp.15000</td>
                   <td>
-                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="detail.html">
+                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="detail.php">
                                 <i class="mdi mdi-cash-multiple"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="ubah">
                   							Ubah
                   						</div>
-                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="detail.html">
+                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="detail.php">
                                 <i class="mdi mdi-cash-multiple"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="hapus">
