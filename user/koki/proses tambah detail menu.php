@@ -8,7 +8,7 @@
 
   $mysql=mysql_query($query);
   if($mysql){
-    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=tambah detail menu.php?id=$idmenu">';
+    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=tambah detail menu.php?id='.$idmenu.'">';
   }else{
     ?><script>alert('Tambah detail menu gagal');history.go(-1);</script><?php
   }
