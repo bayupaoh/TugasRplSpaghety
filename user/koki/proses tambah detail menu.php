@@ -1,9 +1,11 @@
 <?php
   include("../../koneksi/koneksi.php");
-  $id_menu=$_GET["id"];
-  $iddetail=$_GET["idmenu"];
-  $query="delete from detailmenu where id_detail='$iddetail'";
-  echo $query;
+  $idmenu=$_GET["idmenu"];
+  $idbahanbaku=$_POST["idbahanbaku"];
+  $kebutuhan=$_POST["kebutuhan"];
+
+  $query="insert into detailmenu values(null,'$idmenu','$idbahanbaku',$kebutuhan)";
+
   $mysql=mysql_query($query);
   if($mysql){
     echo '<META HTTP-EQUIV="Refresh" Content="0; URL=tambah detail menu.php?id=$idmenu">';
