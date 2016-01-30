@@ -1,4 +1,12 @@
 <!doctype html>
+<?php
+	include("../../koneksi/koneksi.php");
+	session_start();
+	$idpegawai = $_SESSION['idpegawai'];
+	$nama = $_SESSION['nama_pegawai'];
+	$jabatan = $_SESSION['jabatan'];
+	$foto = $_SESSION['foto'];
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -33,7 +41,7 @@
       <header class="demo-header mdl-layout__header mdl-color--primary mdl-color--white mdl-color-text--white-600">
         <div class="mdl-layout__drawer-button"><i class="mdi mdi-menu"></i></div>
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Tampil Order</span>
+          <span class="mdl-layout-title">Order</span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -53,16 +61,16 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="../../img/pegawai/user.jpg" class="demo-avatar">
+          <img src="../../img/pegawai/<?php echo $foto;?>" class="demo-avatar">
           <div class="demo-avatar-dropdown">
-            <span>Bayu Paoh <br> Pelayan</span>
+            <span><?php echo $nama;?> <br> <?php echo $jabatan;?></span>
             <div class="mdl-layout-spacer"></div>
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil report.html"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil report.html"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+          <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
+          <a class="mdl-navigation__link" href="tampil meja.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
+          <a class="mdl-navigation__link" href="tampil order.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>
@@ -83,32 +91,33 @@
                 </tr>
               </thead>
               <tbody>
+              <?php
+				$query = 'SELECT * FROM pesanan p JOIN meja m ON p.id_meja = m.id_meja';
+			  	$mysql = mysql_query($query);
+				while($row = mysql_fetch_array($mysql)){
+			  ?>
                 <tr>
-                  <td class="mdl-data-table__cell--non-numeric">T1</td>
-                  <td class="mdl-data-table__cell--non-numeric">Meja 1</td>
-                  <td class="mdl-data-table__cell--non-numeric">Rp.10000</td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['no_pesanan'];?></td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['nama_meja'];?></td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['total_harga'];?></td>
                   <td>
-                  						<a id="bayar" class="mdl-button mdl-js-button mdl-button--icon" href="detail.html">
-                                <i class="mdi mdi-cash-multiple"></i>
-                  						</a>
-                  						<div class="mdl-tooltip" for="bayar">
-                  							Detail
-                  						</div>               
-                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="detail.html">
+                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="edit meja.php?id=<?php echo $row['id_meja'];?>">
                                 <i class="mdi mdi-cash-multiple"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="ubah">
                   							Ubah
                   						</div>
-                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="detail.html">
-                                <i class="mdi mdi-cash-multiple"></i>
+                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="proses hapus meja.php?id=<?php echo $row['id_meja'];?>">
+                                <i class="mdi mdi-delete"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="hapus">
                   							Hapus
                   						</div>
                   					  </td>
 									  </tr>
-
+			  <?php
+				}
+			  ?>
               </tbody>
             </table>
             <!--/ tabel pegawai -->

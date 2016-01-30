@@ -1,4 +1,12 @@
 <!doctype html>
+<?php
+	include("../../koneksi/koneksi.php");
+	session_start();
+	$idpegawai = $_SESSION['idpegawai'];
+	$nama = $_SESSION['nama_pegawai'];
+	$jabatan = $_SESSION['jabatan'];
+	$foto = $_SESSION['foto'];
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -47,16 +55,16 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="../../img/pegawai/user.jpg" class="demo-avatar">
+          <img src="../../img/pegawai/<?php echo $foto;?>" class="demo-avatar">
           <div class="demo-avatar-dropdown">
-            <span>Bayu Paoh <br> Pelayan</span>
+            <span><?php echo $nama;?> <br> <?php echo $jabatan;?></span>
             <div class="mdl-layout-spacer"></div>
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.html"><i class="mdi mdi-cart"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil kuisioner.html"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil kuisioner.html"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+          <a class="mdl-navigation__link" href="index.php"><i class="mdi mdi-cart"></i>Order</a>
+          <a class="mdl-navigation__link" href="tampil kuisioner.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
+          <a class="mdl-navigation__link" href="tampil kuisioner.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>
@@ -64,7 +72,7 @@
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
             <!-- Form Tambah pelayan-->
-               <form role="form" action="#" method="post" name="postform" enctype="multipart/form-data">
+               <form role="form" action="proses tambah meja.phpid=<?php echo $idpegawai;?>" method="post" name="postform" enctype="multipart/form-data">
                <h4><center>Tambah Meja</center></h4>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                    <label for="idmeja" class="mdl-textfield__label">Id Meja</label>
@@ -73,15 +81,15 @@
                </div>
                <br>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                   <label for="pertanyaan" class="mdl-textfield__label">Nama</label>
-                   <textarea class="mdl-textfield__input" id="pertanyaan" name="pertanyaan"> </textarea>
+                   <label for="namameja" class="mdl-textfield__label">Nama</label>
+                   <textarea class="mdl-textfield__input" id="namameja" name="namameja"> </textarea>
                </div>
                <br>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                   <label for="telepon" class="mdl-textfield__label">Status</label>
-                   <select class="mdl-textfield__input" id="jabatan" name="jabatan">
-                    <option value="P1">Kosong</option>
-                    <option value="P1">Isi</option>
+                   <label for="status" class="mdl-textfield__label">Status</label>
+                   <select class="mdl-textfield__input" id="status" name="status">
+                    <option value="Kosong">Kosong</option>
+                    <option value="Terisi">Terisi</option>
                    </select>
                </div>
                <br>
