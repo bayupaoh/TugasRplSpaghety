@@ -99,8 +99,8 @@
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['nama_meja'];?></td>
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['total_harga'];?></td>
                   <td>
-                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="ubah order.php">
-                                <i class="mdi mdi-cash-multiple"></i>
+                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="pesan order.php?idmeja=<?php echo $row['id_meja'];?>&idpesan=<?php echo $row['no_pesanan'];?>">
+                                <i class="mdi mdi-tooltip-edit"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="ubah">
                   							Ubah

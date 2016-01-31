@@ -115,7 +115,7 @@
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['id_pegawai'];?></td>
                   <td>
                   						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="edit meja.php?id=<?php echo $row['id_meja'];?>">
-                                <i class="mdi mdi-cash-multiple"></i>
+                                <i class="mdi mdi-tooltip-edit"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="ubah">
                   							Ubah
