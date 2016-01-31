@@ -46,7 +46,7 @@
                 </div>
                 <br>
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">Login</button>
-                <a href="lupa password.html">Lupa Password</a>
+                <a href="lupa password.php">Lupa Password</a>
             </form>
           </center>
           </div>

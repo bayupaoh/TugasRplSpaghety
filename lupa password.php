@@ -41,7 +41,7 @@
                 </div>
                 <br>
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">Submit</button>
-                <a href="index.html">Kembali Login</a>
+                <a href="index.php">Kembali Login</a>
             </form>
           </center>
           </div>
