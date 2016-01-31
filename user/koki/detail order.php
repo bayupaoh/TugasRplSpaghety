@@ -7,7 +7,7 @@
 	$foto = $_SESSION['foto'];
 
   $idpesanan=$_GET["id"];
-  $query="select p.*,m.nama_meja from pesanan p join menu m on p.id_meja=m.id_meja where p.no_pesanan='$idpesanan'";
+  $query="select p.*,m.nama_meja from pesanan p join meja m on p.id_meja=m.id_meja where p.no_pesanan='$idpesanan'";
   $mysql=mysql_query($query);
   while($row=mysql_fetch_array($mysql)){
 		$namameja=$row["nama_meja"];

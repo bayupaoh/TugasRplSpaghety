@@ -89,8 +89,6 @@
                 <tr>
                   <th class="mdl-data-table__cell--non-numeric">No Transaksi</th>
                   <th class="mdl-data-table__cell--non-numeric">Meja</th>
-                  <th class="mdl-data-table__cell--non-numeric">Total menu</th>
-                  <th class="mdl-data-table__cell--non-numeric">Status</th>
                   <th class="mdl-data-table__cell--non-numeric">Total Harga</th>
                   <th class="mdl-data-table__cell--non-numeric"></th>
                 </tr>
@@ -98,27 +96,19 @@
               <tbody>
 <?php
 
-$query="select p.*,m.nama_meja from pesanan p join meja m where p.status='Belum' and date(p.tgl_pesanan)=date(now());";
+$query="select p.*,m.nama_meja from pesanan p join meja m on p.id_meja=m.id_meja where p.status='Belum' and date(p.tgl_pesanan)=date(now());";
 $mysql=mysql_query($query);
 while($row=mysql_fetch_array($mysql)){
 	$nopes=$row['no_pesanan'];
-	$query2="select no_pesanan,count(no_pesanan) as jumlah from detailpesanan group by no_pesanan where no_pesanan='$nopes'";
-	$mysql2=mysql_query($query2);
-
-	if($item=mysql_fetch_array($query2)){
-			$jumlahitem=$item["jumlah"];
-	}
 
 ?>
                 <tr>
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row["no_pesanan"]; ?></td>
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row["nama_meja"]; ?></td>
-                  <td class="mdl-data-table__cell--non-numeric"><?php echo $jumlahitem; ?></td>
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row["total_harga"]; ?></td>
-                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row["status"]; ?></td>
-									<td>
-										<a id="detail order.php?id=<?php echo $row["no_pesanan"];?>" class="mdl-button mdl-js-button mdl-button--icon" href="detail pesanan.php?id=<?php echo $row["no_pesanan"]; ?>"><em class="mdi mdi-tooltip-edit"></em> </a>
-                    <div class="mdl-tooltip" for="detail">
+          				<td>
+										<a id="detail<?php echo $row["no_pesanan"];?>" class="mdl-button mdl-js-button mdl-button--icon" href="detail order.php?id=<?php echo $row["no_pesanan"]; ?>"><em class="mdi mdi-tooltip-edit"></em> </a>
+                    <div class="mdl-tooltip" for="detail<?php echo $row["no_pesanan"];?>">
                     Detail
                     </div>
 									</td>
