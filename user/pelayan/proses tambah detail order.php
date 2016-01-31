@@ -8,6 +8,7 @@
 
   $idmeja = $_GET['idmeja'];
   $nopesanan = $_GET['nopesanan'];
+
   $idmenu=$_POST['menu'];
   $jumlah=$_POST['jumlah'];
   $querytampilharga="select * from menu where id_menu='$idmenu'";
