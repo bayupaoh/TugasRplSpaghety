@@ -84,7 +84,7 @@
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
             <!-- Form Tambah Guru-->
             <center>
-              <h5><?php echo $idpesanan;?>( <?php echo $namameja;?> )</h5>
+              <h5><?php echo $idpesanan;?> ( <?php echo $namameja;?> )</h5>
               <h7></h7>
               <table class="mdl-data-table mdl-js-data-table mdl-cell mdl-cell--12-col ">
               <thead>

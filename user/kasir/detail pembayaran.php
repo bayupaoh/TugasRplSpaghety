@@ -86,8 +86,9 @@
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
             <!-- tabel pegawai -->
+						<center>
 			<h3><?php echo $no_pesanan;?></h3>
-			<h5><?php echo $tgl_pesanan;?></h5>
+			<h5><?php echo $tgl;?></h5>
 			<h5><?php echo $nama_meja;?></h5>
 
             <table class="mdl-data-table mdl-js-data-table">
@@ -114,6 +115,7 @@
 			  <?php }?>
               </tbody>
             </table>
+						<br>
             <!--/ tabel pegawai -->
 			<!-- Form Tambah Jabatan-->
                <form role="form" action="proses pembayaran.php?idpesan=<?php echo $no_pesanan; ?>" method="post" name="postform" enctype="multipart/form-data">
