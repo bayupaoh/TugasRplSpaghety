@@ -12,7 +12,7 @@
 	$mysql1=mysql_query($query1);
 	while($row=mysql_fetch_array($mysql1)){
 		$tgl=$row['tgl_pesanan'];
-		$totalharg=$row['total_harga'];
+		$totalharga=$row['total_harga'];
 		$nama_meja=$row['nama_meja'];
 	}
 ?>
