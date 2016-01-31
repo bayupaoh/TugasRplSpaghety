@@ -2,10 +2,11 @@
 <?php
 	include("../../koneksi/koneksi.php");
 	session_start();
-	$idpegawai = $_SESSION['idpegawai'];
+	$idpegawai = $_SESSION['id_pegawai'];
 	$nama = $_SESSION['nama_pegawai'];
-	$jabatan = $_SESSION['jabatan'];
+	$jabatan = $_SESSION['nama_jabatan'];
 	$foto = $_SESSION['foto'];
+
 ?>
 <html lang="en">
   <head>

@@ -2,10 +2,11 @@
 <?php
 	include("../../koneksi/koneksi.php");
 	session_start();
-	$idpegawai = $_SESSION['idpegawai'];
+	$idpegawai = $_SESSION['id_pegawai'];
 	$nama = $_SESSION['nama_pegawai'];
-	$jabatan = $_SESSION['jabatan'];
+	$jabatan = $_SESSION['nama_jabatan'];
 	$foto = $_SESSION['foto'];
+
 	$id = $_GET['id'];
 	$query = "SELECT p.*, j.nama_jabatan FROM pegawai p JOIN jabatan j ON p.id_jabatan = j.id_jabatan WHERE p.id_pegawai = '$id'";
 	$mysql = mysql_query($query);
