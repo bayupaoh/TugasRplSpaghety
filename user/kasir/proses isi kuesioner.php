@@ -5,7 +5,7 @@ session_start();
   $idpesan=$_GET["idpesan"];
 
   $sql="insert into detailkuesioner values(null,'K1','$idpesan','$hasil')";
-  
+
   $mysql=mysql_query($sql);
   if($mysql){
     ?><script>alert('Terima Kasih');</script><?php
