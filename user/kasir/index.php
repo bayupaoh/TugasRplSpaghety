@@ -91,7 +91,7 @@
               </thead>
               <tbody>
 			  <?php
-			  $query="SELECT pesanan.*,meja.nama_meja FROM pesanan JOIN meja WHERE pesanan.Status='Belum'";
+			  $query="SELECT pesanan.*,meja.nama_meja FROM pesanan JOIN meja ON pesanan.id_meja=meja.id_meja WHERE pesanan.Status='Belum'";
 			  $sql=mysql_query($query);
 			   while($row=mysql_fetch_array($sql)){
 			  ?>
