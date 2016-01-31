@@ -12,7 +12,7 @@
 	$mysql1=mysql_query($query1);
 	while($row=mysql_fetch_array($mysql1)){
 		$tgl=$row['tgl_pesanan'];
-		$totalharga=$row['total_harga'];
+		$totalharga = $row['total_harga'];
 		$nama_meja=$row['nama_meja'];
 	}
 ?>
@@ -119,7 +119,7 @@
                <form role="form" action="proses pembayaran.php?idpesan=<?php echo $no_pesanan; ?>" method="post" name="postform" enctype="multipart/form-data">
 								 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								 		<label for="total_harga" class="mdl-textfield__label">Total Harga Rp.</label>
-								 		<input type="text" pattern="[0-9]*" class="mdl-textfield__input" id="total_harga" name="total_harga" value="<?php echo $total_harga; ?>" readonly />
+								 		<input type="text" pattern="[0-9]*" class="mdl-textfield__input" id="total_harga" name="total_harga" value="<?php echo $totalharga; ?>" readonly />
 								 		<span class="mdl-textfield__error">Format harus angka</span>
 								 </div>
 								 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
