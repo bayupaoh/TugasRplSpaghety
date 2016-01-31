@@ -1,4 +1,6 @@
 <?php
+include("../../koneksi/koneksi.php");
+session_start();
   $hasil=$_GET["setuju"];
   $idpesan=$_GET["idpesan"];
 

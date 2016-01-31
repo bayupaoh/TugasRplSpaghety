@@ -90,7 +90,7 @@
               </thead>
               <tbody>
 <?php
-    $query="select p.*,m.nama_meja from pesanan p  join meja m on p.id_meja=m.id_meja";
+    $query="select p.*,m.nama_meja from pesanan p  join meja m on p.id_meja=m.id_meja where p.Status='Belum'";
     $mysql=mysql_query($query);
     while($row=mysql_fetch_array($mysql)){
 ?>

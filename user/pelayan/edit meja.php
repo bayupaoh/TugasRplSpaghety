@@ -2,9 +2,9 @@
 <?php
 	include("../../koneksi/koneksi.php");
 	session_start();
-	$idpegawai = $_SESSION['idpegawai'];
+	$idpegawai = $_SESSION['id_pegawai'];
 	$nama = $_SESSION['nama_pegawai'];
-	$jabatan = $_SESSION['jabatan'];
+	$jabatan = $_SESSION['nama_jabatan'];
 	$foto = $_SESSION['foto'];
 	$idmeja = $_GET['id'];
 	$query = "SELECT * FROM meja WHERE id_meja = '$idmeja'";
@@ -69,9 +69,7 @@
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.php"><i class="mdi mdi-cart"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil meja.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil order.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+					<li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>

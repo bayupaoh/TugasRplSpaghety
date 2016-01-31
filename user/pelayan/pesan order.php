@@ -89,7 +89,7 @@
               <h5>T01 ( Meja 1 )</h5>
               <h7></h7>
 	           <br>
-						<form role="form" action="proses tambah detail order.php?idmeja=".<?php echo $idmeja;?>."&nopesanan=".<?php echo $nopesanan;?>" method="post" name="postform">
+						<form role="form" action="proses tambah detail order.php?idmeja=<?php echo $idmeja;?>&nopesanan=<?php echo $nopesanan;?>" method="post" name="postform">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<label for="menu" class="mdl-textfield__label">Menu</label>
 								<select class="mdl-textfield__input" id="menu" name="menu">
@@ -151,7 +151,7 @@
             </table>
 			<h5>Total Harga : Rp.<?php echo $totalharga;?></h5>
 				<br>
-				<a href="detail order.php">Simpan</a>
+				<a href="tampil order.php">Simpan</a>
             <!-- /form ubah order makan-->
           </div>
         </div>

@@ -104,7 +104,7 @@
 			  </div>
 			  <div class="mdl-card__actions mdl-card--border">
 			  <center>
-				<a href="pesan order.php?id=<?php echo $row['id_meja'];?>"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" <?php if ($row['status'] == 'Terisi') {echo 'disabled';}?>>
+				<a href="form transaksi.php?id=<?php echo $row['id_meja'];?>"class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" <?php if ($row['status'] == 'Terisi') {echo 'disabled';}?>>
 				  Order
 				</a>
 				</center>

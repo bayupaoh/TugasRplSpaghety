@@ -18,12 +18,11 @@
   }
 
   $query1="insert into detailpesanan values(null,'$nopesanan','$idmenu',$jumlah,'Tidak')";
-  echo $query1;
+
   $mysql1=mysql_query($query1);
   if($mysql1){
     $query2="update pesanan set total_harga=total_harga+($jumlah*$harga) where no_pesanan='$nopesanan'";
     $mysql2=mysql_query($query2);
-    echo $query2;
     if($mysql2){
       $query3="select * from detailmenu where id_menu='$idmenu'";
       $mysql3=mysql_query($query3);
@@ -33,7 +32,6 @@
           $kebutuhan = $row['stok'];
           $query4="update bahanbaku set stok=stok-($kebutuhan*$jumlah) where id_bahanbaku='$idbahanbaku'";
           $mysql4=mysql_query($query4);
-          echo $query4;
           if($mysql4){
             $hasil='t';
           }else{

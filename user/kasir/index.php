@@ -99,7 +99,7 @@
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['no_pesanan']; ?></td>
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['nama_meja']; ?></td>
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['total_harga']; ?></td>
-                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['status']; ?></td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Status']; ?></td>
                   <td>
 					<a id="bayar" class="mdl-button mdl-js-button mdl-button--icon" href="detail pembayaran.php?nopesanan=<?php echo $row['no_pesanan']; ?>">
                         <i class="mdi mdi-cash-multiple"></i>

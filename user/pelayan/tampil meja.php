@@ -49,42 +49,34 @@
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-      <header class="demo-header mdl-layout__header mdl-color--primary mdl-color--white mdl-color-text--white-600">
-        <div class="mdl-layout__drawer-button"><i class="mdi mdi-menu"></i></div>
-        <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Kelola Meja</span>
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-            </div>
-          </div>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-            <i class="mdi mdi-dots-vertical"></i>
-          </button>
-          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Setting</li>
-            <li class="mdl-menu__item">Log Out</li>
-          </ul>
-        </div>
-      </header>
-      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-        <header class="demo-drawer-header">
-          <img src="../../img/pegawai/<?php echo $foto;?>" class="demo-avatar">
-          <div class="demo-avatar-dropdown">
-            <span><?php echo $nama;?> <br> <?php echo $jabatan;?></span>
-            <div class="mdl-layout-spacer"></div>
-          </div>
-        </header>
-        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
-          <a class="mdl-navigation__link" href="tampil meja.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
-          <a class="mdl-navigation__link" href="tampil order.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
-          <div class="mdl-layout-spacer"></div>
-        </nav>
-      </div>
+			<header class="demo-header mdl-layout__header mdl-color--primary mdl-color--white mdl-color-text--white-600">
+				<div class="mdl-layout__drawer-button"><i class="mdi mdi-menu"></i></div>
+				<div class="mdl-layout__header-row">
+					<span class="mdl-layout-title">Kelola Meja</span>
+					<div class="mdl-layout-spacer"></div>
+					<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+						<i class="mdi mdi-dots-vertical"></i>
+					</button>
+					<ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+						<li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
+					</ul>
+				</div>
+			</header>
+			<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+				<header class="demo-drawer-header">
+					<img src="../../img/pegawai/<?php echo $foto;?>" class="demo-avatar">
+					<div class="demo-avatar-dropdown">
+						<span><?php echo $nama;?> <br> <?php echo $jabatan;?></span>
+						<div class="mdl-layout-spacer"></div>
+					</div>
+				</header>
+				<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+					<a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 mdi mdi-cart" role="presentation"></i>Order</a>
+					<a class="mdl-navigation__link" href="tampil meja.php"><i class="mdi mdi-archive"></i>Kelola Meja</a>
+					<a class="mdl-navigation__link" href="tampil order.php"><i class="mdi mdi-format-list-numbers"></i>Daftar Order</a>
+					<div class="mdl-layout-spacer"></div>
+				</nav>
+			</div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid demo-content">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
@@ -98,7 +90,6 @@
                   <th class="mdl-data-table__cell--non-numeric">Id Meja</th>
                   <th class="mdl-data-table__cell--non-numeric">Nama Meja</th>
                   <th class="mdl-data-table__cell--non-numeric">Status</th>
-                  <th class="mdl-data-table__cell--non-numeric">Id Pegawai</th>
                   <th class="mdl-data-table__cell--non-numeric"></th>
                 </tr>
               </thead>
@@ -112,7 +103,6 @@
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['id_meja'];?></td>
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['nama_meja'];?></td>
                   <td class="mdl-data-table__cell--non-numeric"><?php echo $row['status'];?></td>
-                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['id_pegawai'];?></td>
                   <td>
                   						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="edit meja.php?id=<?php echo $row['id_meja'];?>">
                                 <i class="mdi mdi-tooltip-edit"></i>
