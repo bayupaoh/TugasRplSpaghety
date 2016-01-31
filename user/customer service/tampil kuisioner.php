@@ -61,10 +61,12 @@
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
               <i class="mdi mdi-magnify"></i>
             </label>
+					<form role="form" action="tampil kuisioner.php" method="post" name="postform" enctype="multipart/form-data">
             <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search" />
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+              <input class="mdl-textfield__input" type="text" id="search" name="search" placeholder="Masukan pertanyaan yang di cari.." />
+              <label class="mdl-textfield__label" for="search">Masukan pertanyaan yang di cari..</label>
             </div>
+					</form>
           </div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="mdi mdi-dots-vertical"></i>
@@ -105,7 +107,12 @@
               <tbody>
 			  <!-- menampilkan daftar pertanyaan di sini -->
 			  <?php
+				if (empty($_POST["search"]) ){
 			    $query='select * from kuesioner';
+				}else{
+					$namacari=$_POST["search"];
+					$query="select * from kuesioner where pertanyaan like '$namacari%' ";
+				}
 				$sql=mysql_query($query);
 				while($row=mysql_fetch_array($sql)){
 			  ?>
