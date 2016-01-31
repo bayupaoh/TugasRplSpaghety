@@ -2,9 +2,9 @@
 <?php
 	include("../../koneksi/koneksi.php");
 	session_start();
-	$idpegawai = $_SESSION['idpegawai'];
+	$idpegawai = $_SESSION['id_pegawai'];
 	$nama = $_SESSION['nama_pegawai'];
-	$jabatan = $_SESSION['jabatan'];
+	$jabatan = $_SESSION['nama_jabatan'];
 	$foto = $_SESSION['foto'];
 ?>
 <html lang="en">
@@ -51,7 +51,7 @@
   color: #fff;
   background:
    bottom right 15%no-repeat #ff0000;
-	
+
 }
 </style>
 
@@ -67,9 +67,7 @@
             <i class="mdi mdi-dots-vertical"></i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Setting</li>
-            <li class="mdl-menu__item">Log Out</li>
+						<li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
           </ul>
         </div>
       </header>
@@ -111,10 +109,10 @@
 				</a>
 				</center>
 			  </div>
-			</div> 
+			</div>
           <?php
 			}
-		  ?> 
+		  ?>
         </div>
       </main>
     </div>

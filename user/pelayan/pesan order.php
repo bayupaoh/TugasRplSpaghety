@@ -2,16 +2,19 @@
 <?php
 	include("../../koneksi/koneksi.php");
 	session_start();
-	$idpegawai = $_SESSION['idpegawai'];
+	$idpegawai = $_SESSION['id_pegawai'];
 	$nama = $_SESSION['nama_pegawai'];
-	$jabatan = $_SESSION['jabatan'];
+	$jabatan = $_SESSION['nama_jabatan'];
 	$foto = $_SESSION['foto'];
-	$idmeja = $_GET['id'];
-	$query = "UPDATE meja SET status = 'Terisi' WHERE id_meja = '$idmeja'";
-	$mysql = mysql_query($query);
-	if (!$mysql) {?>
-		<script> alert ('Order gagal');history.go(-1);</script>
-	<?php }
+
+	$idmeja = $_GET['idmeja'];
+	$nopesanan = $_GET['idpesan'];
+
+	$query="select * from pesanan where no_pesanan='$nopesanan'";
+	$mysql=mysql_query($query);
+	while($row=mysql_fetch_array($mysql)){
+		$totalharga=$row['total_harga'];
+	}
 ?>
 <html lang="en">
   <head>
@@ -59,9 +62,7 @@
             <i class="mdi mdi-dots-vertical"></i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Setting</li>
-            <li class="mdl-menu__item">Log Out</li>
+						<li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
           </ul>
         </div>
       </header>
@@ -86,31 +87,31 @@
             <!-- Form Tambah Guru-->
             <center>
               <h5>T01 ( Meja 1 )</h5>
-              <h7>Tanggal : 17 Mei 2017 17:17:17</h7>
+              <h7></h7>
 	           <br>
-               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                   <label for="pertanyaan" class="mdl-textfield__label">Menu</label>
-                   <input type = "text" class="mdl-text_input" value="Ayam" />
-                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">Cari</button>
-               </div>
+						<form role="form" action="proses tambah detail order.php?idmeja=<?php echo $idmeja;?>&nopesanan=<?php echo $nopesanan;?>" method="post" name="postform">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<label for="menu" class="mdl-textfield__label">Menu</label>
+								<select class="mdl-textfield__input" id="menu" name="menu">
+<?php
+	$querymenu="select * from menu";
+	$mysqlmenu=mysql_query($querymenu);
+	while($row=mysql_fetch_array($mysqlmenu)){
+?>
+									<option value="<?php echo $row['id_menu'];?>"><?php echo $row['nama_menu'];?></option>
+<?php } ?>
+								</select>
+						</div>
 	           <br>
-               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                   <label for="telepon" class="mdl-textfield__label">Jumlah</label>
-                   <select class="mdl-textfield__input">
-                    <option value="P1">1</option>
-                    <option value="P1">2</option>
-                    <option value="P1">3</option>
-                    <option value="P1">4</option>
-                    <option value="P1">5</option>
-                    <option value="P1">6</option>
-                    <option value="P1">7</option>
-                    <option value="P1">8</option>
-                    <option value="P1">9</option>
-                    <option value="P1">10</option>
-                   </select>
-               </div>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<label for="jumlah" class="mdl-textfield__label">Jumlah</label>
+								<input type="text" pattern="[0-9]*" class="mdl-textfield__input" id="jumlah" name="jumlah" />
+								<span class="mdl-textfield__error">Format harus berupa angka</span>
+						</div>
+
 			   <br>
-               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">TAMBAH PESANAN</button>			  
+               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">TAMBAH PESANAN</button>
+</form>
 			   <table class="mdl-data-table mdl-js-data-table mdl-cell mdl-cell--12-col ">
               <thead>
                 <tr>
@@ -123,32 +124,34 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="mdl-data-table__cell--non-numeric">Ayam</td>
-                  <td class="mdl-data-table__cell--non-numeric">1</td>
-                  <td class="mdl-data-table__cell--non-numeric">Rp.15000</td>
-                  <td class="mdl-data-table__cell--non-numeric">Rp.15000</td>
+<?php
+ 		$query="select d.*,m.nama_menu,m.harga,m.diskon from detailpesanan d join menu m on d.id_menu=m.id_menu where d.no_pesanan='$nopesanan'";
+		$mysql=mysql_query($query);
+		while($row=mysql_fetch_array($mysql)){
+			$harga=$row['harga']-($row['harga']*$row['diskon']);
+			$iddetail=$row['id_detailpesanan'];
+			$idmenu=$row['id_menu'];
+			$jumlah=$row['jumlah'];
+?>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['nama_menu'];?></td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['jumlah'];?></td>
+                  <td class="mdl-data-table__cell--non-numeric">Rp.<?php echo $harga;?></td>
+                  <td class="mdl-data-table__cell--non-numeric">Rp<?php echo $row['jumlah']*$harga;?></td>
                   <td>
-                  						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="detail.php">
-                                <i class="mdi mdi-cash-multiple"></i>
-                  						</a>
-                  						<div class="mdl-tooltip" for="ubah">
-                  							Ubah
-                  						</div>
-                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="detail.php">
-                                <i class="mdi mdi-cash-multiple"></i>
+                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="proses hapus tambah detail order.php?idmeja=<?php echo $idmeja;?>&nopesanan=<?php echo $nopesanan;?>&iddetail=<?php echo $iddetail;?>&menu=<?php echo $idmenu;?>&jumlah=<?php echo $jumlah;?>">
+                                <i class="mdi mdi-delete"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="hapus">
                   							Hapus
                   						</div>
                   					  </td>
 									  </tr>
-
+<?php } ?>
               </tbody>
             </table>
-			<h5>Total Harga : Rp.15000</h5>
+			<h5>Total Harga : Rp.<?php echo $totalharga;?></h5>
 				<br>
-               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">PESAN</button>
-               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent " type="submit">RESET</button>
+				<a href="detail order.php">Simpan</a>
             <!-- /form ubah order makan-->
           </div>
         </div>

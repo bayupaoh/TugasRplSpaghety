@@ -1,3 +1,11 @@
+<?php
+	include("../../koneksi/koneksi.php");
+	session_start();
+	$idpegawai = $_SESSION['id_pegawai'];
+	$nama = $_SESSION['nama_pegawai'];
+	$jabatan = $_SESSION['nama_jabatan'];
+	$foto = $_SESSION['foto'];
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -45,17 +53,15 @@
             <i class="mdi mdi-dots-vertical"></i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Setting</li>
-            <li class="mdl-menu__item">Log Out</li>
+            <li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
           </ul>
         </div>
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="../../img/pegawai/user.jpg" class="demo-avatar">
+          <img src="../../img/pegawai/<?php echo $foto;?>" class="demo-avatar">
           <div class="demo-avatar-dropdown">
-            <span>Bayu Paoh <br> Pelayan</span>
+            <span><?php echo $nama;?> <br> <?php echo $jabatan;?></span>
             <div class="mdl-layout-spacer"></div>
           </div>
         </header>
@@ -83,32 +89,25 @@
                 </tr>
               </thead>
               <tbody>
+<?php
+    $query="select p.*,m.nama_meja from pesanan p  join meja m on p.id_meja=m.id_meja";
+    $mysql=mysql_query($query);
+    while($row=mysql_fetch_array($mysql)){
+?>
                 <tr>
-                  <td class="mdl-data-table__cell--non-numeric">T1</td>
-                  <td class="mdl-data-table__cell--non-numeric">Meja 1</td>
-                  <td class="mdl-data-table__cell--non-numeric">Rp.10000</td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['no_pesanan'];?></td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['nama_meja'];?></td>
+                  <td class="mdl-data-table__cell--non-numeric"><?php echo $row['total_harga'];?></td>
                   <td>
-                  						<a id="bayar" class="mdl-button mdl-js-button mdl-button--icon" href="detail order.php">
-                                <i class="mdi mdi-cash-multiple"></i>
-                  						</a>
-                  						<div class="mdl-tooltip" for="bayar">
-                  							Detail
-                  						</div>               
                   						<a id="ubah" class="mdl-button mdl-js-button mdl-button--icon" href="ubah order.php">
                                 <i class="mdi mdi-cash-multiple"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="ubah">
                   							Ubah
                   						</div>
-                  						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="#">
-                                <i class="mdi mdi-cash-multiple"></i>
-                  						</a>
-                  						<div class="mdl-tooltip" for="hapus">
-                  							Hapus
-                  						</div>
                   					  </td>
 									  </tr>
-
+<?php } ?>
               </tbody>
             </table>
             <!--/ tabel pegawai -->

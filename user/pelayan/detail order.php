@@ -45,17 +45,15 @@
             <i class="mdi mdi-dots-vertical"></i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Setting</li>
-            <li class="mdl-menu__item">Log Out</li>
+            <li class="mdl-menu__item"><a href="../../koneksi/logout.php">Log Out</a></li>
           </ul>
         </div>
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <img src="../../img/pegawai/user.jpg" class="demo-avatar">
+          <img src="../../img/pegawai/<?php echo $foto;?>" class="demo-avatar">
           <div class="demo-avatar-dropdown">
-            <span>Bayu Paoh <br> Pelayan</span>
+            <span><?php echo $nama;?> <br> <?php echo $jabatan;?></span>
             <div class="mdl-layout-spacer"></div>
           </div>
         </header>
