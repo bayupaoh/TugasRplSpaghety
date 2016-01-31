@@ -124,13 +124,13 @@
                   						  <i class="mdi mdi-tooltip-edit"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="edit">
-                  							Edit Siswa
+                  							Edit Pertanyaan
                   						</div>
                   						<a id="hapus" class="mdl-button mdl-js-button mdl-button--icon" href="proses hapus kuesioner.php?id=<?php echo $row['id_kuesioner'];?>">
                   						  <i class="mdi mdi-delete"></i>
                   						</a>
                   						<div class="mdl-tooltip" for="hapus">
-                  							Hapus Siswa
+                  							Hapus Pertanyaan
                   						</div>
                   					  <br>
                   					  </td>
